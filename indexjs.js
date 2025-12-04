@@ -34,7 +34,31 @@
 
 //----------------------
 //3.Arrow Expression
-let arrrow = () => {
-  console.log("Arrow Expression called");
+// let arrrow = () => {
+//   console.log("Arrow Expression called");
+// };
+// arrrow();
+//---------------------
+// //4.callback function and IFFE
+// (() => {
+//   console.log("callback and IFFE function called");
+// })();
+const addTwonumbers = (parameter1, parameter2) => {
+  let num1 = parameter1;
+  let num2 = parameter2;
+  let sum = num1 + num2;
+  console.log("The sum of two number is:", sum);
 };
-arrrow();
+
+addTwonumbers(20, 50);
+addTwonumbers(40, 50);
+addTwonumbers();
+
+const subTwonumbers = (parameter1, parameter2) => {
+  let num1 = parameter1;
+  let num2 = parameter2;
+  let sum = num1 - num2;
+  console.log("The sub of two number is:", sum);
+};
+subTwonumbers(20, 50);
+subTwonumbers(40, 50);
