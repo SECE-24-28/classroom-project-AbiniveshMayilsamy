@@ -90,4 +90,4 @@
 
 let c = [1, 2, 3];
 let d = [1, 2, 3];
-console.log(c === d);
+console.log(c[(0, 1, 2)] == d[(0, 1, 2)]);
