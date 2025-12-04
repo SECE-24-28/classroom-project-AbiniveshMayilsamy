@@ -23,11 +23,18 @@
 //   console.log("Named Function called");
 //   console.log("Named Function called");
 // }
-
+//-----------------------
 // namedFun();
 //2.Function Expression
-let funcExp = function () {
-  console.log("Function Expression called");
-};
+// let funcExp = function () {
+//   console.log("Function Expression called");
+// };
 
-funcExp();
+// funcExp();
+
+//----------------------
+//3.Arrow Expression
+let arrrow = () => {
+  console.log("Arrow Expression called");
+};
+arrrow();
