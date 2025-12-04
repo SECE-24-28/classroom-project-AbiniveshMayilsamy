@@ -18,10 +18,16 @@
 
 // <----JavaScript Functions------->
 //1.Named Function
-function namedFun() {
-  console.log("Named Function called");
-  console.log("Named Function called");
-  console.log("Named Function called");
-}
+// function namedFun() {
+//   console.log("Named Function called");
+//   console.log("Named Function called");
+//   console.log("Named Function called");
+// }
 
-namedFun();
+// namedFun();
+//2.Function Expression
+let funcExp = function () {
+  console.log("Function Expression called");
+};
+
+funcExp();
