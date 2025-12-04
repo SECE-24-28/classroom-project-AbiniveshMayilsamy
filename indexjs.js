@@ -110,8 +110,14 @@
 
 let a = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 
-// filter: it will work on Truthy Values
-let b = a.filter((element, index) => {
-  return index > 4;
-});
-console.log(b);
+// // filter: it will work on Truthy Values
+// let b = a.filter((element, index) => {
+//   return index > 4;
+// });
+// console.log(b);
+
+let c = a.reduce((acc, el, index) => {
+  console.log(acc, el);
+  return acc + el;
+}, 200);
+console.log(c);
