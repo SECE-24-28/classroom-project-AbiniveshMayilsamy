@@ -28,3 +28,7 @@ console.log(head.textContent);
 // Write Operation
 head.textContent = "This is new Para text content.";
 console.log(head.textContent);
+
+let div = document.querySelector("div");
+div.innerHTML = "<h1> Hello From Para </h1>";
+//div.textContent = "<h1> Hello From Para </h1>";
