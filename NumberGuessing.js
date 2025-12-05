@@ -55,7 +55,7 @@ checkBtn.addEventListener("click", () => {
 
 //to change the background color
 function changeColor() {
-  document.body.style.backgroundColor = "#222";
+  document.body.style.backgroundColor = "#000000ff";
 }
 
 //to change the guess number back to question mark
