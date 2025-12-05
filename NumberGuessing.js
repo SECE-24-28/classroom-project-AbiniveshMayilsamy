@@ -78,3 +78,10 @@ againBtn.addEventListener("click", () => {
 function hover() {
   checkBtn.classList.add("hover");
 }
+
+// lost game message
+function lostGame() {
+  if (scr === 0) {
+    msg.textContent = "💥 You lost the game!";
+  }
+}
