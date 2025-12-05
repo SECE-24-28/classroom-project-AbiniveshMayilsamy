@@ -52,3 +52,24 @@ checkBtn.addEventListener("click", () => {
     }
   }
 });
+
+//to change the background color
+function changeColor() {
+  document.body.style.backgroundColor = "#222";
+}
+
+//to change the guess number back to question mark
+function changeNumber() {
+  number.textContent = "?";
+}
+
+//again button functionality
+againBtn.addEventListener("click", () => {
+  scr = 20;
+  score.textContent = scr;
+  randomNumber = Math.trunc(Math.random() * 20) + 1;
+  msg.textContent = "Start guessing...";
+  guess.value = "";
+  changeColor();
+  changeNumber();
+});
