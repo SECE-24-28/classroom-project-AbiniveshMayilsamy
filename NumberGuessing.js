@@ -33,7 +33,7 @@ checkBtn.addEventListener("click", () => {
   else if (guessNumber === randomNumber) {
     msg.textContent = "🎉 Correct Number!";
     number.textContent = randomNumber;
-    document.body.style.backgroundColor = "#60b347";
+    document.body.style.backgroundColor = "#32bd08ff";
     number.style.width = "30rem";
     if (scr > highScore.textContent) {
       highScore.textContent = scr;
@@ -73,3 +73,8 @@ againBtn.addEventListener("click", () => {
   changeColor();
   changeNumber();
 });
+
+//anmation hover
+function hover() {
+  checkBtn.classList.add("hover");
+}
