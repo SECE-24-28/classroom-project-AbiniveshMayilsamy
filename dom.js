@@ -32,3 +32,5 @@ console.log(head.textContent);
 let div = document.querySelector("div");
 div.innerHTML = "<h1> Hello From Para </h1>";
 //div.textContent = "<h1> Hello From Para </h1>";
+console.log(div.textContent);
+console.log(div.innerHTML);
