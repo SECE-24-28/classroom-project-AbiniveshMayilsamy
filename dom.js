@@ -65,3 +65,11 @@ li.textContent = "Item 1";
 //4.append child
 ul.appendChild(li);
 document.body.appendChild(ul);
+
+document.body.appendChild(ul);
+let arr = ["apple", "Mango", "Banana"];
+arr.forEach((element) => {
+  let lo = document.createElement("li");
+  lo.textContent = element;
+  ul.appendChild(lo);
+});
