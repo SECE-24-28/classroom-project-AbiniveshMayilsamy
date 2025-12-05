@@ -10,6 +10,7 @@ function changeText() {
 let changeColor = () => {
   let c = document.querySelector("#box");
   c.classList.toggle("b");
+  box.style.backgroundColor = "yellow";
 };
 function hideBox() {
   const box = document.getElementById("box");
