@@ -46,3 +46,10 @@ head.classList.add("color");
 head.classList.remove("background");
 head.classList.toggle("color");
 head.classList.toggle("border");
+
+// Styling
+let p = document.querySelector("p");
+p.style.color = "green";
+p.style.backgroundColor = "Skyblue";
+p.style.fontSize = "20px";
+p.style.fontFamily = "Arial";
