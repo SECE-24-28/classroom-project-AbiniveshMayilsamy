@@ -1,26 +1,67 @@
-setTimeout(() => {
-  console.log("setTimeout Function");
-}, 2000);
+// setTimeout(() => {
+//   console.log("setTimeout Function");
+// }, 2000);
 
-//callback AND timer
+// const { log } = require("async");
 
-console.log("Hello World");
+// //callback AND timer
 
-// callback hell
-//nested callbacks
+// console.log("Hello World");
 
-setTimeout(() => {
-  console.log("setTimeout Function 1");
-  setTimeout(() => {
-    console.log("setTimeout Function 2");
-    setTimeout(() => {
-      console.log("setTimeout Function 3");
-      setTimeout(() => {
-        console.log("setTimeout Function 4");
-        setTimeout(() => {
-          console.log("setTimeout Function 5");
-        }, 2000);
-      }, 2000);
-    }, 2000);
-  }, 2000);
-}, 2000);
+// // callback hell
+// //nested callbacks
+
+// setTimeout(() => {
+//   console.log("setTimeout Function 1");
+//   setTimeout(() => {
+//     console.log("setTimeout Function 2");
+//     setTimeout(() => {
+//       console.log("setTimeout Function 3");
+//       setTimeout(() => {
+//         console.log("setTimeout Function 4");
+//         setTimeout(() => {
+//           console.log("setTimeout Function 5");
+//         }, 2000);
+//       }, 2000);
+//     }, 2000);
+//   }, 2000);
+// }, 2000);
+
+//promises states : pending, fulfolled(res), rejected(rej)
+
+let myPromise = new Promise((res, rej) => {
+  let mark = 40;
+  if (mark >= 60) {
+    res("Student is Passed");
+  } else {
+    rej("Student is Rejected");
+  }
+});
+
+// ways to call Promise
+//.then() and .catch
+
+myPromise
+  .then((a) => {
+    console.log(a);
+  })
+  .catch((err) => {
+    console.log(err);
+  });
+
+// Async and Await
+// no errror Handling
+
+let handlePromise = async () => {
+  try {
+    console.log();
+    let response = await myPromise;
+    console.log(response);
+    console.log("anything");
+  } catch (err) {
+    console.log(err);
+  } finally {
+    console.log("Execution Completed");
+  }
+};
+handlePromise();
