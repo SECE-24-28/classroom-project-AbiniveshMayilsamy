@@ -2,7 +2,7 @@
 .App {
   font-family: "Press Start 2P", sans-serif;
   color: #ff0000;
-  background-color: #465c79;
+  background-color: black;
   min-height: 100vh;
 }
 
@@ -113,13 +113,6 @@ h1 {
 
 .label-score {
   margin-bottom: 2rem;
-}
-
-.App {
-  font-family: "Press Start 2P", sans-serif;
-  color: #ff0000;
-  background-color: #465c79;
-  min-height: 100vh;
 }
 
 .App.win {
