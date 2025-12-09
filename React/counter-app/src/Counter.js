@@ -6,7 +6,17 @@ const Counter = ({ val, handleIncrement, handleDecrement }) => {
       <h1>Counter</h1>
       <h1>{val}</h1>
       {val < 0 ? (
-        <h1 style={{ backgroundColor: "white", color: "red" }}>
+        <h1
+          style={{
+            border: "1px solid red",
+            color: "red",
+            fontSize: "13px",
+            display: "flex",
+            flexDirection: "row",
+            alignItems: "center",
+            justifyContent: "center",
+          }}
+        >
           Negative Value
         </h1>
       ) : null}
