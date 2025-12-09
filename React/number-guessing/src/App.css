@@ -1,4 +1,10 @@
 @import url("https://fonts.googleapis.com/css?family=Press+Start+2P&display=swap");
+.App {
+  font-family: "Press Start 2P", sans-serif;
+  color: #ff0000;
+  background-color: #465c79;
+  min-height: 100vh;
+}
 
 * {
   margin: 0;
@@ -9,12 +15,6 @@
 html {
   font-size: 62.5%;
   box-sizing: border-box;
-}
-
-body {
-  font-family: "Press Start 2P", sans-serif;
-  color: #ff0000;
-  background-color: #465c79;
 }
 
 header {
@@ -113,4 +113,15 @@ h1 {
 
 .label-score {
   margin-bottom: 2rem;
+}
+
+.App {
+  font-family: "Press Start 2P", sans-serif;
+  color: #ff0000;
+  background-color: #465c79;
+  min-height: 100vh;
+}
+
+.App.win {
+  background-color: #32bd08ff;
 }
