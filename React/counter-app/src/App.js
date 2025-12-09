@@ -9,14 +9,15 @@ import NamedComponent, {
 } from "./NamedComponent";
 
 function App() {
+  let msg = "Hello World";
   return (
     <div className="App">
       <h1>Learning React</h1>
-      <Component1></Component1>
+      <Component1 age={21}></Component1>
       <Component2></Component2>
       <Component></Component>
       <Component3></Component3>
-      <Component4></Component4>
+      <Component4 src={msg}></Component4>
       <Component5></Component5>
       <NamedComponent></NamedComponent>
       <NamedComponent2></NamedComponent2>
