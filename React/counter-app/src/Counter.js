@@ -1,11 +1,30 @@
 import ButtonContainer from "./ButtonContainer";
 
 const Counter = ({ val, handleIncrement, handleDecrement }) => {
+  let v = null;
+  if (val < 0) {
+    v = <p>Negative Value</p>;
+  } else if (val > 5) {
+    v = <p>Positive Value</p>;
+  }
   return (
     <div className="Counter">
       <h1>Counter</h1>
       <h1>{val}</h1>
-      {val < 0 ? (
+      <p
+        style={{
+          border: "1px solid red",
+          color: "red",
+          fontSize: "13px",
+          display: "flex",
+          flexDirection: "row",
+          alignItems: "center",
+          justifyContent: "center",
+        }}
+      >
+        {v}
+      </p>
+      {/* {val < 0 ? (
         <h1
           style={{
             border: "1px solid red",
@@ -19,7 +38,7 @@ const Counter = ({ val, handleIncrement, handleDecrement }) => {
         >
           Negative Value
         </h1>
-      ) : null}
+      ) : null} */}
       <ButtonContainer
         handleIncrement={handleIncrement}
         handleDecrement={handleDecrement}
