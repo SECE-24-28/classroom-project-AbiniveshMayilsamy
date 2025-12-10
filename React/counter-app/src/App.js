@@ -15,7 +15,7 @@ function App() {
   // let val = 0;
   let [val, setVal] = useState(10);
   let [data, setData] = useState(null);
-  let [posts, setPosts] = useState(null);
+  let [data1, setData1] = useState(null);
   const handleIncrement = () => {
     // val = val + 1;
     setVal(val + 1);
@@ -44,7 +44,9 @@ function App() {
   useEffect(() => {
     const fetchApi = async () => {
       try {
-        const response = await fetch("https://jsonplaceholder.typicode.com/users");
+        const response = await fetch(
+          "https://jsonplaceholder.typicode.com/users"
+        );
         const fetchData = await response.json();
         setData(fetchData);
       } catch (error) {
@@ -55,17 +57,22 @@ function App() {
   }, []);
 
   useEffect(() => {
-    const fetchPosts = async () => {
+    const fetchApi2 = async () => {
       try {
-        const response = await fetch("https://jsonplaceholder.typicode.com/posts");
+        const response = await fetch(
+          "https://jsonplaceholder.typicode.com/posts"
+        );
         const fetchData = await response.json();
-        setPosts(fetchData);
+        setData1(fetchData);
       } catch (error) {
         console.log("err:", error);
       }
     };
-    fetchPosts();
+    fetchApi2();
   }, []);
+
+  console.log(data);
+  console.log(data1);
   // sideEffects
   // call back function / array of dependencies{Propa/state}
   // usecases- empty array-> runs afte55r initial render
@@ -90,8 +97,6 @@ function App() {
         val={val}
         handleIncrement={handleIncrement}
         handleDecrement={handleDecrement}
-        data={data}
-        posts={posts}
       />
     </div>
   );
