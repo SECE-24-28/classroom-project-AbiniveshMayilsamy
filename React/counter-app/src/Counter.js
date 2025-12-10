@@ -21,9 +21,8 @@ const Counter = ({ val, handleIncrement, handleDecrement }) => {
           alignItems: "center",
           justifyContent: "center",
         }}
-      >
-        {v}
-      </p>
+      />
+      {v}
       {/* {val < 0 ? (
         <h1
           style={{

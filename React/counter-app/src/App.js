@@ -1,5 +1,5 @@
 import "./App.css";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Counter from "./Counter";
 // import { Component1 } from "./Component1";
 // import Component2, { Component, Component3 } from "./Component2";
@@ -24,6 +24,23 @@ function App() {
     setVal(val - 1);
     console.log("Decrement Button Clickeed", val);
   };
+  // sideEffects
+  // call back function / array of dependencies{Propa/state}
+  // usecases- empty array-> runs afte55r initial render
+  // with dependices- run after every render if dependices changes
+  //Without array of dependices
+  useEffect(() => {
+    console.log("useEffect called - Run once after initial render");
+  }, []);
+
+  useEffect(() => {
+    console.log("useEffect called -  with dependices");
+  }, [val]);
+
+  useEffect(() => {
+    console.log("useEffect called - without array");
+  });
+
   return (
     <div className="App">
       <h1>Learning React</h1>
