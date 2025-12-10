@@ -14,6 +14,7 @@ import Counter from "./Counter";
 function App() {
   // let val = 0;
   let [val, setVal] = useState(10);
+  let [data, setData] = useState(null);
   const handleIncrement = () => {
     // val = val + 1;
     setVal(val + 1);
@@ -31,13 +32,26 @@ function App() {
         setVal(0);
       }, 2000);
 
-      //cleaner function--> Demousing
+      //cleaner function--> Debouncing
       return () => {
         clearTimeout(timer);
         console.log("Cleaner function called");
       };
     }
   }, [val]);
+
+  useEffect(() => {
+    const fetchApi = async () => {
+      try {
+        const response = await fetch("https://jsonplaceholder.typicode.com/users");
+        const fetchData = await response.json();
+        setData(fetchData);
+      } catch (error) {
+        console.log("err:", error);
+      }
+    };
+    fetchApi();
+  }, []);
   // sideEffects
   // call back function / array of dependencies{Propa/state}
   // usecases- empty array-> runs afte55r initial render
@@ -63,6 +77,30 @@ function App() {
         handleIncrement={handleIncrement}
         handleDecrement={handleDecrement}
       />
+      <div>
+        <h2>Users:</h2>
+        {data ? (
+          <ul>
+            {data.map(user => (
+              <li key={user.id}>{user.name}</li>
+            ))}
+          </ul>
+        ) : (
+          <p>Loading...</p>
+        )}
+      </div>
+      <div>
+        <h2>Users:</h2>
+        {data ? (
+          <ul>
+            {data.map(user => (
+              <li key={user.id}>{user.name}</li>
+            ))}
+          </ul>
+        ) : (
+          <p>Loading...</p>
+        )}
+      </div>
     </div>
   );
 }
