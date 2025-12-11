@@ -17,14 +17,14 @@ const QuizHeader = () => {
         <nav style={{ display: "flex", gap: "20px" }}>
           {userRole === "admin" ? (
             <>
-              <NavLink to="/admin" style={{ color: "white", textDecoration: "none" }}>Create Quiz</NavLink>
-              <NavLink to="/leaderboard" style={{ color: "white", textDecoration: "none" }}>Leaderboard</NavLink>
+              <NavLink to="/quiz/admin" style={{ color: "white", textDecoration: "none" }}>Create Quiz</NavLink>
+              <NavLink to="/quiz/leaderboard" style={{ color: "white", textDecoration: "none" }}>Leaderboard</NavLink>
             </>
           ) : (
             <>
-              <NavLink to="/quiz-catalog" style={{ color: "white", textDecoration: "none" }}>Quizzes</NavLink>
-              <NavLink to="/results" style={{ color: "white", textDecoration: "none" }}>My Results</NavLink>
-              <NavLink to="/leaderboard" style={{ color: "white", textDecoration: "none" }}>Leaderboard</NavLink>
+              <NavLink to="/quiz/quiz-catalog" style={{ color: "white", textDecoration: "none" }}>Quizzes</NavLink>
+              <NavLink to="/quiz/results" style={{ color: "white", textDecoration: "none" }}>My Results</NavLink>
+              <NavLink to="/quiz/leaderboard" style={{ color: "white", textDecoration: "none" }}>Leaderboard</NavLink>
             </>
           )}
           <button onClick={handleLogout} style={{ background: "none", border: "1px solid white", color: "white", padding: "5px 15px", cursor: "pointer" }}>

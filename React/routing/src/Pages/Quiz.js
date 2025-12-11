@@ -33,7 +33,7 @@ const Quiz = () => {
       const results = JSON.parse(localStorage.getItem("results")) || [];
       results.push(result);
       localStorage.setItem("results", JSON.stringify(results));
-      navigate("/results");
+      navigate("/quiz/results");
     }
   };
 

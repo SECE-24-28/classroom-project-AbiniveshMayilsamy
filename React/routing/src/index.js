@@ -49,27 +49,27 @@ const routerVariables = createBrowserRouter([
     element: <SignUp />,
   },
   {
-    path: "/",
+    path: "quiz",
     element: <QuizApp />,
     children: [
       {
-        path: "/quiz-catalog",
+        path: "quiz-catalog",
         element: <QuizCatalog />,
       },
       {
-        path: "/quiz/:id",
+        path: "quiz/:id",
         element: <Quiz />,
       },
       {
-        path: "/results",
+        path: "results",
         element: <Results />,
       },
       {
-        path: "/leaderboard",
+        path: "leaderboard",
         element: <Leaderboard />,
       },
       {
-        path: "/admin",
+        path: "admin",
         element: <Admin />,
       },
     ],

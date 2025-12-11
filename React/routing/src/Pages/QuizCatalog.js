@@ -24,7 +24,7 @@ const QuizCatalog = () => {
           <div key={quiz.id} style={{ border: "1px solid #ccc", padding: "20px", borderRadius: "8px" }}>
             <h3>{quiz.title}</h3>
             <p>{quiz.questions.length} Questions</p>
-            <button onClick={() => navigate(`/quiz/${quiz.id}`)} style={{ padding: "10px 20px" }}>
+            <button onClick={() => navigate(`/quiz/quiz/${quiz.id}`)} style={{ padding: "10px 20px" }}>
               Start Quiz
             </button>
           </div>

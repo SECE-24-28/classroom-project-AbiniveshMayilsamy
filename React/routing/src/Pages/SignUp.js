@@ -10,7 +10,7 @@ const SignUp = () => {
     e.preventDefault();
     localStorage.setItem("userRole", "user");
     localStorage.setItem("userName", email);
-    navigate("/quiz-catalog");
+    navigate("/quiz/quiz-catalog");
   };
 
   return (

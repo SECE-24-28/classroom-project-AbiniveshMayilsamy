@@ -10,11 +10,11 @@ const Login = () => {
     e.preventDefault();
     if (email === "admin@quiz.com" && password === "admin") {
       localStorage.setItem("userRole", "admin");
-      navigate("/admin");
+      navigate("/quiz/admin");
     } else {
       localStorage.setItem("userRole", "user");
       localStorage.setItem("userName", email);
-      navigate("/quiz-catalog");
+      navigate("/quiz/quiz-catalog");
     }
   };
 
