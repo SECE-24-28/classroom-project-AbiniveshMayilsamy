@@ -1,0 +1,146 @@
+{
+  "title": "Extended General Knowledge Quiz",
+  "total_questions": 20,
+  "questions": [
+    {
+      "question_number": 1,
+      "question": "What is the capital city of Australia?",
+      "options": ["Sydney", "Melbourne", "Canberra", "Perth"],
+      "answer": "Canberra"
+    },
+    {
+      "question_number": 2,
+      "question": "Which element has the chemical symbol 'Fe'?",
+      "options": ["Iron", "Gold", "Silver", "Fluorine"],
+      "answer": "Iron"
+    },
+    {
+      "question_number": 3,
+      "question": "Who painted the Mona Lisa?",
+      "options": [
+        "Vincent van Gogh",
+        "Pablo Picasso",
+        "Leonardo da Vinci",
+        "Claude Monet"
+      ],
+      "answer": "Leonardo da Vinci"
+    },
+    {
+      "question_number": 4,
+      "question": "What is the largest ocean on Earth?",
+      "options": [
+        "Atlantic Ocean",
+        "Indian Ocean",
+        "Arctic Ocean",
+        "Pacific Ocean"
+      ],
+      "answer": "Pacific Ocean"
+    },
+    {
+      "question_number": 5,
+      "question": "In which year did the Titanic sink?",
+      "options": ["1905", "1912", "1918", "1923"],
+      "answer": "1912"
+    },
+    {
+      "question_number": 6,
+      "question": "What is the hardest natural substance on Earth?",
+      "options": ["Gold", "Iron", "Diamond", "Platinum"],
+      "answer": "Diamond"
+    },
+    {
+      "question_number": 7,
+      "question": "Which planet is closest to the Sun?",
+      "options": ["Venus", "Mars", "Mercury", "Earth"],
+      "answer": "Mercury"
+    },
+    {
+      "question_number": 8,
+      "question": "How many bones are in the adult human body?",
+      "options": ["206", "208", "210", "212"],
+      "answer": "206"
+    },
+    {
+      "question_number": 9,
+      "question": "What is the currency of Japan?",
+      "options": ["Won", "Yen", "Yuan", "Dollar"],
+      "answer": "Yen"
+    },
+    {
+      "question_number": 10,
+      "question": "Who represents the 'M' in the acronym HTML?",
+      "options": ["Main", "Markup", "Machine", "Modern"],
+      "answer": "Markup"
+    },
+    {
+      "question_number": 11,
+      "question": "What is the square root of 64?",
+      "options": ["6", "7", "8", "9"],
+      "answer": "8"
+    },
+    {
+      "question_number": 12,
+      "question": "Which country is home to the Kangaroo?",
+      "options": ["New Zealand", "South Africa", "Australia", "Brazil"],
+      "answer": "Australia"
+    },
+    {
+      "question_number": 13,
+      "question": "What gas do plants absorb from the atmosphere for photosynthesis?",
+      "options": ["Oxygen", "Carbon Dioxide", "Nitrogen", "Hydrogen"],
+      "answer": "Carbon Dioxide"
+    },
+    {
+      "question_number": 14,
+      "question": "Who was the first person to walk on the Moon?",
+      "options": [
+        "Buzz Aldrin",
+        "Yuri Gagarin",
+        "Neil Armstrong",
+        "Michael Collins"
+      ],
+      "answer": "Neil Armstrong"
+    },
+    {
+      "question_number": 15,
+      "question": "What consists of a proton, neutron, and electron?",
+      "options": ["Molecule", "Atom", "Cell", "Compound"],
+      "answer": "Atom"
+    },
+    {
+      "question_number": 16,
+      "question": "Which continent is the Sahara Desert located in?",
+      "options": ["Asia", "South America", "Africa", "Australia"],
+      "answer": "Africa"
+    },
+    {
+      "question_number": 17,
+      "question": "What is the boiling point of water at sea level?",
+      "options": ["90°C", "100°C", "110°C", "120°C"],
+      "answer": "100°C"
+    },
+    {
+      "question_number": 18,
+      "question": "Which language is primarily spoken in Brazil?",
+      "options": ["Spanish", "Portuguese", "French", "English"],
+      "answer": "Portuguese"
+    },
+    {
+      "question_number": 19,
+      "question": "Who wrote the 'Harry Potter' series?",
+      "options": [
+        "J.R.R. Tolkien",
+        "George R.R. Martin",
+        "J.K. Rowling",
+        "Stephen King"
+      ],
+      "answer": "J.K. Rowling"
+    },
+    {
+      "question_number": 20,
+      "question": "What is the smallest prime number?",
+      "options": ["0", "1", "2", "3"],
+      "answer": "2"
+    }
+  ]
+}
