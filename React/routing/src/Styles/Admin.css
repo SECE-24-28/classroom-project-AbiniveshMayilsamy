@@ -1,0 +1,54 @@
+.admin-container {
+  min-height: 100vh;
+  background-color: #FFF8DC;
+  padding: 20px;
+}
+
+.admin-content {
+  max-width: 800px;
+  margin: auto;
+}
+
+.admin-header {
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.admin-input {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+.question-box {
+  background-color: white;
+  border: 1px solid #ccc;
+  padding: 15px;
+  margin: 10px 0;
+  border-radius: 10px;
+}
+
+.add-question-btn {
+  padding: 10px 20px;
+  margin: 10px 5px;
+  background-color: #2196F3;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.create-quiz-btn {
+  padding: 10px 20px;
+  margin: 10px 5px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
