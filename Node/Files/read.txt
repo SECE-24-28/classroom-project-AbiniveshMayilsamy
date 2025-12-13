@@ -1,0 +1,1 @@
+JavaScript code runs on a single main thread, managed by the V8 JavaScript engine and the event loop. This design choice simplifies development by avoiding common multi-threading issues like deadlocks and race conditions.
