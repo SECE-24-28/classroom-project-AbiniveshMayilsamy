@@ -21,10 +21,16 @@ fs.writeFileSync(
 // path // Encryption // callback function(error, data)
 fs.readFile("./Files/read-this.txt", "utf-8", (error, data) => {
   console.log(data);
+  fs.readFile(`./Files/${data}`, "utf-8", (error, data1) => {
+    console.log(data1);
+  });
 });
 console.log("Hello after async code");
 
 //write data
+
+//path,data,Encryption, callback function(error)
+
 fs.writeFile(
   "./Files/write-this.txt",
   "This is async file write",
