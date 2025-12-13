@@ -1,0 +1,82 @@
+[
+  {
+    "id": 1,
+    "name": "Amit Sharma",
+    "age": 21,
+    "email": "amit.sharma@example.com",
+    "password": "amit123",
+    "collegeName": "Delhi University"
+  },
+  {
+    "id": 2,
+    "name": "Riya Singh",
+    "age": 20,
+    "email": "riya.singh@example.com",
+    "password": "riya456",
+    "collegeName": "Lovely Professional University"
+  },
+  {
+    "id": 3,
+    "name": "Karan Mehta",
+    "age": 22,
+    "email": "karan.mehta@example.com",
+    "password": "karan789",
+    "collegeName": "Chandigarh University"
+  },
+  {
+    "id": 4,
+    "name": "Priya Verma",
+    "age": 19,
+    "email": "priya.verma@example.com",
+    "password": "priya321",
+    "collegeName": "Amity University"
+  },
+  {
+    "id": 5,
+    "name": "Sahil Gupta",
+    "age": 23,
+    "email": "sahil.gupta@example.com",
+    "password": "sahil654",
+    "collegeName": "Sharda University"
+  },
+  {
+    "id": 6,
+    "name": "Neha Kapoor",
+    "age": 20,
+    "email": "neha.kapoor@example.com",
+    "password": "neha987",
+    "collegeName": "GGSIPU Delhi"
+  },
+  {
+    "id": 7,
+    "name": "Rohit Kumar",
+    "age": 24,
+    "email": "rohit.kumar@example.com",
+    "password": "rohit852",
+    "collegeName": "SRM University"
+  },
+  {
+    "id": 8,
+    "name": "Simran Kaur",
+    "age": 21,
+    "email": "simran.kaur@example.com",
+    "password": "simran963",
+    "collegeName": "Panjab University"
+  },
+  {
+    "id": 9,
+    "name": "Deepak Yadav",
+    "age": 22,
+    "email": "deepak.yadav@example.com",
+    "password": "deepak741",
+    "collegeName": "Galgotias University"
+  },
+  {
+    "id": 10,
+    "name": "Anjali Mishra",
+    "age": 19,
+    "email": "anjali.mishra@example.com",
+    "password": "anjali159",
+    "collegeName": "Banaras Hindu University"
+  }
+]
