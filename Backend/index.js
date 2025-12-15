@@ -105,6 +105,33 @@ app.put("/api/v1/abc/single/:id", (req, res) => {
   });
 });
 
+// delete data
+app.delete("/api/v1/abc/single/:id", (req, res) => {
+  const id = req.params.id * 1;
+  let singleData = jsonData.find((el) => el.id === id);
+  if (!singleData) {
+    return res.status(404).json({
+      status: "fail",
+      message: "Invalid ID",
+    });
+  }
+  const index = jsonData.indexOf(singleData);
+  jsonData.splice(index, 1);
+  fs.writeFile("abc.json", JSON.stringify(jsonData), "utf-8", (err) => {
+    if (err) {
+      res.status(500).json({
+        status: "error",
+        message: "Internal Server Error",
+      });
+    } else {
+      res.status(204).json({
+        status: "success",
+        data: null,
+      });
+    }
+  });
+});
+
 const PORT_NO = 9000;
 app.listen(PORT_NO, () => {
   console.log("Server is running on port on http://localhost:" + PORT_NO);
