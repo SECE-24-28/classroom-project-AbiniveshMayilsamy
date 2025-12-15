@@ -15,7 +15,7 @@ console.log(jsonData);
 // U: Update -> Put and Patch
 // D: Delete
 
-app.get("/api/v1/abc/", (req, res) => {
+app.get("/api/v2/abc/", (req, res) => {
   res.status(200).json({
     status: "success",
     length: jsonData.length,
@@ -26,7 +26,7 @@ app.get("/api/v1/abc/", (req, res) => {
 });
 
 // single data
-app.get("/api/v1/abc/single/:id", (req, res) => {
+app.get("/api/v2/abc/single/:id", (req, res) => {
   const id = req.params.id * 1;
   let singleData = jsonData.find((el) => el.id === id);
   //   res.status(200).json({
@@ -50,7 +50,7 @@ app.get("/api/v1/abc/single/:id", (req, res) => {
   });
 });
 
-app.post("/api/v1/abc/single/:id", (req, res) => {
+app.post("/api/v2/abc/single/:id", (req, res) => {
   const id = jsonData.length;
   const newData = Object.assign({ id: id + 1 }, req.body);
   jsonData.push(newData);
@@ -80,7 +80,7 @@ app.post("/api/v1/abc/single/:id", (req, res) => {
   });
 });
 // update data
-app.put("/api/v1/abc/single/:id", (req, res) => {
+app.put("/api/v2/abc/single/:id", (req, res) => {
   const id = req.params.id * 1;
   let singleData = jsonData.find((el) => el.id === id);
   if (!singleData) {
@@ -106,7 +106,7 @@ app.put("/api/v1/abc/single/:id", (req, res) => {
 });
 
 // delete data
-app.delete("/api/v1/abc/single/:id", (req, res) => {
+app.delete("/api/v2/abc/single/:id", (req, res) => {
   const id = req.params.id * 1;
   let singleData = jsonData.find((el) => el.id === id);
   if (!singleData) {
