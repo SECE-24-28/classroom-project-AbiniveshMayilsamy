@@ -6,7 +6,7 @@ app.use(express.json());
 
 // read json file
 
-const jsonData = JSON.parse(fs.readFileSync("abc.json", "utf-8"));
+const jsonData = JSON.parse(fs.readFileSync("menu.json", "utf-8"));
 console.log(jsonData);
 
 //  CRUD Operations
@@ -15,7 +15,7 @@ console.log(jsonData);
 // U: Update -> Put and Patch
 // D: Delete
 
-app.get("/api/v2/abc/", (req, res) => {
+app.get("/api/v2/menu/", (req, res) => {
   res.status(200).json({
     status: "success",
     length: jsonData.length,
@@ -26,7 +26,7 @@ app.get("/api/v2/abc/", (req, res) => {
 });
 
 // single data
-app.get("/api/v2/abc/single/:id", (req, res) => {
+app.get("/api/v2/menu/single/:id", (req, res) => {
   const id = req.params.id * 1;
   let singleData = jsonData.find((el) => el.id === id);
   //   res.status(200).json({
@@ -50,11 +50,11 @@ app.get("/api/v2/abc/single/:id", (req, res) => {
   });
 });
 
-app.post("/api/v2/abc/single/:id", (req, res) => {
+app.post("/api/v2/menu/single/:id", (req, res) => {
   const id = jsonData.length;
   const newData = Object.assign({ id: id + 1 }, req.body);
   jsonData.push(newData);
-  fs.writeFile("abc.json", JSON.stringify(jsonData), "utf-8", (err) => {
+  fs.writeFile("menu.json", JSON.stringify(jsonData), "utf-8", (err) => {
     if (err) {
       res.status(500).json({
         status: "error",
@@ -80,7 +80,7 @@ app.post("/api/v2/abc/single/:id", (req, res) => {
   });
 });
 // update data
-app.put("/api/v2/abc/single/:id", (req, res) => {
+app.put("/api/v2/menu/single/:id", (req, res) => {
   const id = req.params.id * 1;
   let singleData = jsonData.find((el) => el.id === id);
   if (!singleData) {
@@ -90,7 +90,7 @@ app.put("/api/v2/abc/single/:id", (req, res) => {
     });
   }
   singleData = Object.assign(singleData, req.body);
-  fs.writeFile("abc.json", JSON.stringify(jsonData), "utf-8", (err) => {
+  fs.writeFile("menu.json", JSON.stringify(jsonData), "utf-8", (err) => {
     if (err) {
       res.status(500).json({
         status: "error",
@@ -106,7 +106,7 @@ app.put("/api/v2/abc/single/:id", (req, res) => {
 });
 
 // delete data
-app.delete("/api/v2/abc/single/:id", (req, res) => {
+app.delete("/api/v2/menu/single/:id", (req, res) => {
   const id = req.params.id * 1;
   let singleData = jsonData.find((el) => el.id === id);
   if (!singleData) {
@@ -117,7 +117,7 @@ app.delete("/api/v2/abc/single/:id", (req, res) => {
   }
   const index = jsonData.indexOf(singleData);
   jsonData.splice(index, 1);
-  fs.writeFile("abc.json", JSON.stringify(jsonData), "utf-8", (err) => {
+  fs.writeFile("menu.json", JSON.stringify(jsonData), "utf-8", (err) => {
     if (err) {
       res.status(500).json({
         status: "error",
