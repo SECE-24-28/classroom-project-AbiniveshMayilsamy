@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "title": "General Knowledge Quiz",
+    "description": "Test your general knowledge",
+    "questions": 20,
+    "category": "General"
+  },
+  {
+    "id": 2,
+    "title": "Science Quiz",
+    "description": "Test your science knowledge",
+    "questions": 15,
+    "category": "Science"
+  },
+  {
+    "id": 3,
+    "title": "History Quiz",
+    "description": "Test your history knowledge",
+    "questions": 10,
+    "category": "History"
+  }
+]

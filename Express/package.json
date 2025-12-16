@@ -1,0 +1,24 @@
+{
+  "name": "sri",
+  "version": "1.0.0",
+  "description": "Assesment Creation",
+  "homepage": "https://github.com/SECE-24-28/classroom-project-AbiniveshMayilsamy#readme",
+  "bugs": {
+    "url": "https://github.com/SECE-24-28/classroom-project-AbiniveshMayilsamy/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SECE-24-28/classroom-project-AbiniveshMayilsamy.git"
+  },
+  "license": "ISC",
+  "author": "Abinivesh M",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "express": "^5.2.1",
+    "nodemon": "^3.1.11"
+  }
+}
