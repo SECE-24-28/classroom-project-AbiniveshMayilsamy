@@ -3,7 +3,7 @@ const fs = require("fs");
 const userRoutes = require("./routes/userRoutes");
 
 const app = express();
-const PORT = 5000;
+const PORT = 9000;
 
 app.use("/api/v3/user", userRoutes);
 
