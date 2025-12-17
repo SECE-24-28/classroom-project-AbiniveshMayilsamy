@@ -1,24 +1,19 @@
 {
-  "name": "expressmongo",
+  "name": "day14",
   "version": "1.0.0",
-  "description": "task",
-  "keywords": [],
-  "license": "ISC",
-  "author": "Abinivesh M",
-  "type": "commonjs",
   "main": "index.js",
   "scripts": {
-    "start": "node app.js",
-    "server": "node server.js",
-    "simple": "node server-simple.js",
+    "start": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
   "dependencies": {
     "cors": "^2.8.5",
     "dotenv": "^17.2.3",
     "express": "^5.2.1",
-    "jsonwebtoken": "^9.0.3",
-    "mongoose": "^8.20.3",
-    "nodemon": "^3.1.11"
+    "mongoose": "^8.20.3"
   }
 }
