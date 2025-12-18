@@ -89,49 +89,51 @@ function QuizAuth() {
   return (
     <div className="login-wrapper">
       <div className="login-container">
-        <div className="login-header">
-          <h2>Quiz Details</h2>
+        <div className="login-form-section">
+          <div className="login-header">
+            <h2>Quiz Details</h2>
+          </div>
+
+          <div className="quiz-info">
+            <h3>{quiz.title}</h3>
+            <div className="quiz-stats">
+              <span>Questions: {quiz.totalQuestions}</span>
+              <span>Category: {quiz.className}</span>
+            </div>
+          </div>
+
+          <form onSubmit={handleAuth}>
+            <div className="form-group">
+              <input
+                type="text"
+                placeholder="Full Name"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+                required
+                className="login-input"
+              />
+            </div>
+
+            <div className="form-group">
+              <input
+                type="text"
+                placeholder="Roll Number (e.g., 23CSE045)"
+                value={rollNo}
+                onChange={(e) => setRollNo(e.target.value.toUpperCase())}
+                required
+                className="login-input"
+              />
+            </div>
+
+            {error && <div className="error-message">{error}</div>}
+
+            <button type="submit" className="login-button" disabled={loading}>
+              {loading ? "Starting..." : "Start Quiz"}
+            </button>
+          </form>
+
+          <button onClick={() => navigate("/quiz")} className="back-button">Back to Catalog</button>
         </div>
-
-        <div className="quiz-info">
-          <h3>{quiz.title}</h3>
-          <div className="quiz-stats">
-            <span>Questions: {quiz.totalQuestions}</span>
-            <span>Category: {quiz.className}</span>
-          </div>
-        </div>
-
-        <form onSubmit={handleAuth}>
-          <div className="form-group">
-            <input
-              type="text"
-              placeholder="Full Name"
-              value={name}
-              onChange={(e) => setName(e.target.value)}
-              required
-              className="login-input"
-            />
-          </div>
-
-          <div className="form-group">
-            <input
-              type="text"
-              placeholder="Roll Number (e.g., 23CSE045)"
-              value={rollNo}
-              onChange={(e) => setRollNo(e.target.value.toUpperCase())}
-              required
-              className="login-input"
-            />
-          </div>
-
-          {error && <div className="error-message">{error}</div>}
-
-          <button type="submit" className="login-button" disabled={loading}>
-            {loading ? "Starting..." : "Start Quiz"}
-          </button>
-        </form>
-
-        <button onClick={() => navigate("/quiz")} className="back-button">Back to Catalog</button>
       </div>
     </div>
   );

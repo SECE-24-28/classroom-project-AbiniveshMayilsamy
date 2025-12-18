@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import QuizLeaderboard from "../Components/QuizLeaderboard";
 import "../Styles/Quiz.css";
@@ -14,7 +14,6 @@ function Quiz() {
   const [totalScore, setTotalScore] = useState(0);
   const [showLeaderboard, setShowLeaderboard] = useState(false);
   const [liveScores, setLiveScores] = useState([]);
-  const timerRef = useRef(null);
 
   const student = JSON.parse(localStorage.getItem("currentQuizStudent"));
 
@@ -26,16 +25,19 @@ function Quiz() {
 
     async function loadQuiz() {
       try {
-        let res, data;
+        let data;
         if (id === "1") {
-          res = await fetch("/Quiz.json");
+          const res = await fetch("/Quiz.json");
           data = await res.json();
         } else if (id === "2") {
-          res = await fetch("/quiz-2.json");
+          const res = await fetch("/quiz-2.json");
           data = await res.json();
         } else if (id === "3") {
-          res = await fetch("/quiz-3.json");
+          const res = await fetch("/quiz-3.json");
           data = await res.json();
+        } else {
+          const quizzes = JSON.parse(localStorage.getItem("quizzes")) || [];
+          data = quizzes.find((q) => q.id === parseInt(id));
         }
         
         if (data) {
@@ -47,22 +49,14 @@ function Quiz() {
             questions: data.questions.map((q) => ({
               question: q.question,
               options: q.options,
-              answer: q.options.indexOf(q.answer),
-              imageId: q.image_id
+              answer: typeof q.answer === "number" ? q.answer : q.options.indexOf(q.answer),
+              imageId: q.image_id || q.imageId
             })),
           });
           setTimeLeft(30);
-        } else {
-          const quizzes = JSON.parse(localStorage.getItem("quizzes")) || [];
-          const found = quizzes.find((q) => q.id === parseInt(id));
-          if (found) {
-            setQuiz(found);
-            setCloudinaryCloudName(found.cloudinary_cloud_name || "demo");
-            setTimeLeft(found.timeLimit || 30);
-          }
         }
       } catch (err) {
-        console.log("Error:", err);
+        console.log("Error loading quiz:", err);
       }
     }
     loadQuiz();
@@ -105,7 +99,7 @@ function Quiz() {
     setTimeout(() => {
       if (currentQuestion < quiz.questions.length - 1) {
         setCurrentQuestion(currentQuestion + 1);
-        setTimeLeft(quiz.timeLimit || 30);
+        setTimeLeft(30);
         setShowLeaderboard(false);
       } else {
         const result = {
@@ -129,33 +123,29 @@ function Quiz() {
 
   useEffect(() => {
     if (!quiz || showLeaderboard) return;
-    
-    if (timerRef.current) clearInterval(timerRef.current);
 
-    timerRef.current = setInterval(() => {
+    const timer = setInterval(() => {
       setTimeLeft(prev => {
         if (prev <= 1) {
           handleNext();
-          return quiz.timeLimit || 30;
+          return 30;
         }
         return prev - 1;
       });
     }, 1000);
 
-    return () => {
-      if (timerRef.current) clearInterval(timerRef.current);
-    };
+    return () => clearInterval(timer);
   }, [quiz, showLeaderboard, currentQuestion]);
 
-  if (!quiz || !student) return <div className="quiz-loading">Loading...</div>;
+  if (!quiz || !student) return <div className="quiz-loading">Loading Quiz...</div>;
 
   if (showLeaderboard) {
     return <QuizLeaderboard scores={liveScores} currentUser={student.rollNo} />;
   }
 
   const question = quiz.questions[currentQuestion];
-  const timePercentage = (timeLeft / (quiz.timeLimit || 30)) * 100;
-  const timerClass = timePercentage > 50 ? "" : timePercentage > 25 ? "warning" : "danger";
+  const timePercentage = (timeLeft / 30) * 100;
+  const rotation = (timePercentage / 100) * 360;
   const imageUrl = question.imageId ? `https://res.cloudinary.com/${cloudinaryCloudName}/image/upload/${question.imageId}` : null;
 
   return (
@@ -164,10 +154,23 @@ function Quiz() {
       <p><strong>Student:</strong> {student.name} ({student.rollNo})</p>
       <div className="quiz-score-display">Score: {totalScore}</div>
       <p className="quiz-progress">Question {currentQuestion + 1} of {quiz.questions.length}</p>
-      <div className="quiz-timer">Time: {timeLeft}s</div>
-      <div className="quiz-timer-bar">
-        <div className={`quiz-timer-fill ${timerClass}`} style={{ width: `${timePercentage}%` }}></div>
+      
+      <div className="timer-pie-container">
+        <svg className="timer-pie" viewBox="0 0 100 100">
+          <circle cx="50" cy="50" r="45" className="timer-pie-bg" />
+          <circle 
+            cx="50" 
+            cy="50" 
+            r="45" 
+            className="timer-pie-fill"
+            style={{
+              strokeDasharray: `${(timePercentage / 100) * 282.7} 282.7`
+            }}
+          />
+          <text x="50" y="55" className="timer-text">{timeLeft}s</text>
+        </svg>
       </div>
+
       <h3 className="quiz-question">{question.question}</h3>
       {imageUrl && <img src={imageUrl} alt="Question" className="quiz-image" />}
       <div className="quiz-options">

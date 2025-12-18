@@ -1,6 +1,7 @@
 import { useForm, useFieldArray } from "react-hook-form";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import { quizAPI } from "../api";
 import SystemStatus from "./SystemStatus";
 import "../Styles/Admin.css";
 
@@ -10,13 +11,13 @@ function Admin() {
   const [activeTab, setActiveTab] = useState("quiz");
   const [students, setStudents] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
+  const [backendQuizzes, setBackendQuizzes] = useState([]);
   
   const { register, control, handleSubmit, reset } = useForm({
     defaultValues: {
       title: "",
       className: "",
       timeLimit: 30,
-      cloudinary_cloud_name: "demo",
       questions: [{ question: "", options: ["", "", "", ""], answer: 0, imageId: "" }]
     }
   });
@@ -26,6 +27,7 @@ function Admin() {
 
   useEffect(() => {
     loadStudents();
+    loadBackendQuizzes();
   }, []);
 
   function loadStudents() {
@@ -36,25 +38,37 @@ function Admin() {
     setStudents(uniqueStudents);
   }
 
-  function onSubmitQuiz(data) {
-    const quizzes = JSON.parse(localStorage.getItem("quizzes")) || [];
-    const newQuiz = {
-      id: Date.now(),
+  async function loadBackendQuizzes() {
+    const data = await quizAPI.getQuizzes();
+    if (data) {
+      setBackendQuizzes(data);
+    }
+  }
+
+  async function onSubmitQuiz(data) {
+    const quizData = {
       title: data.title,
       className: data.className,
       timeLimit: parseInt(data.timeLimit),
-      cloudinary_cloud_name: data.cloudinary_cloud_name,
       questions: data.questions.map(q => ({
         question: q.question,
         options: q.options,
         answer: parseInt(q.answer),
-        imageId: q.imageId
+        imageId: q.imageId || ""
       }))
     };
-    quizzes.push(newQuiz);
-    localStorage.setItem("quizzes", JSON.stringify(quizzes));
-    alert("Quiz created successfully!");
-    reset();
+
+    const result = await quizAPI.createQuiz(quizData);
+    if (result) {
+      alert("Quiz created successfully!");
+      reset();
+      loadBackendQuizzes();
+      const localQuizzes = JSON.parse(localStorage.getItem("quizzes")) || [];
+      localQuizzes.push(result.quiz);
+      localStorage.setItem("quizzes", JSON.stringify(localQuizzes));
+    } else {
+      alert("Failed to create quiz");
+    }
   }
 
   function onSubmitClass(data) {
@@ -163,8 +177,6 @@ function Admin() {
               </select>
 
               <input {...register("timeLimit", { required: true })} type="number" placeholder="Time Limit (seconds per question)" className="admin-input" />
-              
-              <input {...register("cloudinary_cloud_name")} placeholder="Cloudinary Cloud Name (default: demo)" className="admin-input" />
 
               {fields.map((field, qIdx) => (
                 <div key={field.id} className="question-box">

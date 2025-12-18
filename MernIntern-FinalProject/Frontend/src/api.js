@@ -11,10 +11,11 @@ export const apiCall = async (endpoint, method = "GET", data = null) => {
 
   try {
     const response = await fetch(`${API_BASE_URL}${endpoint}`, options);
+    if (!response.ok) throw new Error(`HTTP ${response.status}`);
     return await response.json();
   } catch (error) {
     console.error("API Error:", error);
-    throw error;
+    return null;
   }
 };
 
@@ -22,6 +23,7 @@ export const statusAPI = {
   getStatus: async () => {
     try {
       const response = await fetch(`${BACKEND_URL}/api/status`);
+      if (!response.ok) throw new Error("Status check failed");
       return await response.json();
     } catch (error) {
       return {
@@ -43,5 +45,6 @@ export const quizAPI = {
   getQuizzes: () => apiCall("/quiz"),
   getQuizById: (id) => apiCall(`/quiz/${id}`),
   submitQuiz: (submissionData) => apiCall("/quiz/submit", "POST", submissionData),
-  getResults: () => apiCall("/quiz/results/all")
+  getResults: () => apiCall("/quiz/results/all"),
+  deleteQuiz: (id) => apiCall(`/quiz/${id}`, "DELETE")
 };

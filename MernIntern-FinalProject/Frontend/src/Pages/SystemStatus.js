@@ -13,7 +13,10 @@ function SystemStatus() {
     const checkStatus = async () => {
       setLoading(true);
       const data = await statusAPI.getStatus();
-      setStatus(data);
+      setStatus(data || {
+        backend: { connected: false, message: "Failed to connect" },
+        database: { connected: false, message: "Failed to connect" }
+      });
       setLoading(false);
     };
 
@@ -27,22 +30,22 @@ function SystemStatus() {
       <h2>System Status</h2>
       
       <div className="status-grid">
-        <div className={`status-card ${status.backend.connected ? "connected" : "disconnected"}`}>
+        <div className={`status-card ${status.backend?.connected ? "connected" : "disconnected"}`}>
           <div className="status-icon">
-            <span className={`dot ${status.backend.connected ? "active" : ""}`}></span>
+            <span className={`dot ${status.backend?.connected ? "active" : ""}`}></span>
           </div>
           <h3>Backend Server</h3>
-          <p className="status-message">{status.backend.message}</p>
+          <p className="status-message">{status.backend?.message || "Checking..."}</p>
           <p className="status-url">http://localhost:5000</p>
         </div>
 
-        <div className={`status-card ${status.database.connected ? "connected" : "disconnected"}`}>
+        <div className={`status-card ${status.database?.connected ? "connected" : "disconnected"}`}>
           <div className="status-icon">
-            <span className={`dot ${status.database.connected ? "active" : ""}`}></span>
+            <span className={`dot ${status.database?.connected ? "active" : ""}`}></span>
           </div>
-          <h3>MongoDB Database</h3>
-          <p className="status-message">{status.database.message}</p>
-          <p className="status-url">mongodb://localhost:27017</p>
+          <h3>Database</h3>
+          <p className="status-message">{status.database?.message || "Checking..."}</p>
+          <p className="status-url">Local Storage</p>
         </div>
       </div>
 

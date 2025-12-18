@@ -1,5 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
+import { quizAPI } from "../api";
 import "../Styles/QuizCatalog.css";
 
 function QuizCatalog() {
@@ -69,8 +70,8 @@ function QuizCatalog() {
           difficulty: "Easy"
         });
         
-        const saved = JSON.parse(localStorage.getItem("quizzes")) || [];
-        const allQuizzes = [...jsonQuizzes, ...saved];
+        const backendQuizzes = await quizAPI.getQuizzes();
+        const allQuizzes = [...jsonQuizzes, ...(backendQuizzes || [])];
         
         const grouped = allQuizzes.reduce((acc, quiz) => {
           const className = quiz.className || "General";
@@ -81,15 +82,7 @@ function QuizCatalog() {
         
         setQuizzesByClass(grouped);
       } catch (err) {
-        console.log("Error loading JSON:", err);
-        const saved = JSON.parse(localStorage.getItem("quizzes")) || [];
-        const grouped = saved.reduce((acc, quiz) => {
-          const className = quiz.className || "General";
-          if (!acc[className]) acc[className] = [];
-          acc[className].push(quiz);
-          return acc;
-        }, {});
-        setQuizzesByClass(grouped);
+        console.log("Error loading quizzes:", err);
       }
     }
     fetchQuizzes();

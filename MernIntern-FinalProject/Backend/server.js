@@ -10,6 +10,11 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
+let serverStatus = {
+  backend: { connected: true, message: "Backend Running" },
+  database: { connected: false, message: "Using Local Storage (MongoDB not connected)" }
+};
+
 app.use("/api/auth", authRoutes);
 app.use("/api/quiz", quizRoutes);
 
@@ -18,13 +23,11 @@ app.get("/", (req, res) => {
 });
 
 app.get("/api/status", (req, res) => {
-  res.json({
-    backend: { connected: true, message: "Backend Running" },
-    database: { connected: true, message: "Using Local Storage" }
-  });
+  res.json(serverStatus);
 });
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
+  console.log("Database: Using Local Storage");
 });
