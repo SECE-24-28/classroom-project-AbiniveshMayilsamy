@@ -21,7 +21,16 @@ function Contact() {
 
         <div className="contact-card">
           <h2>Follow Us</h2>
-          <p>Instagram: <a href="https://instagram.com/srieshwarcbe" target="_blank" rel="noopener noreferrer">@srieshwarcbe</a></p>
+          <p>
+            Instagram:{" "}
+            <a
+              href="https://instagram.com/srieshwarcbe"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              @srieshwarcbe
+            </a>
+          </p>
         </div>
 
         <div className="contact-card">
@@ -30,8 +39,15 @@ function Contact() {
           <p>A comprehensive platform for online assessments and learning.</p>
         </div>
       </div>
+      <img
+        src="/multi quiz portal.png"
+        alt="Quiz Portal Logo"
+        className="contact-logo"
+      />
 
-      <button onClick={() => navigate("/quiz")} className="back-to-home">Back to Home</button>
+      <button onClick={() => navigate("/quiz")} className="back-to-home">
+        Back to Home
+      </button>
     </div>
   );
 }

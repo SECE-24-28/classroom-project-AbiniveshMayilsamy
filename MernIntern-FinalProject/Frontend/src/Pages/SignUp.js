@@ -86,6 +86,14 @@ function SignUp() {
 
   return (
     <div className="signup-wrapper">
+      <div className="signup-logo-section">
+        <img src="/multi quiz portal.png" alt="Quiz Portal Logo" className="signup-logo-img" />
+        <div className="signup-logo-text">
+          <h2>Quiz Portal</h2>
+          <p>Test Your Knowledge</p>
+        </div>
+      </div>
+
       <div className="signup-container">
         <div className="signup-progress">
           <div className={`progress-step ${step >= 1 ? 'active' : ''}`}>

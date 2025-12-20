@@ -1,11 +1,13 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Orbitron:wght@400;700;900&display=swap');
+
 * {
-  font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: 'Orbitron', 'Press Start 2P', sans-serif;
 }
 
 body {
   margin: 0;
   padding: 0;
-  font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: 'Orbitron', 'Press Start 2P', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -15,14 +17,20 @@ code {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Press Start 2P', 'Orbitron', sans-serif;
   font-weight: 700;
+  letter-spacing: 2px;
 }
 
 button {
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Orbitron', 'Press Start 2P', sans-serif;
+  letter-spacing: 1px;
 }
 
 input, textarea, select {
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Orbitron', 'Press Start 2P', sans-serif;
+}
+
+p, span, a {
+  font-family: 'Orbitron', sans-serif;
 }

@@ -326,6 +326,7 @@
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 30px;
+  align-items: start;
 }
 
 .contact-item {
@@ -335,12 +336,38 @@
   border-left: 4px solid white;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
   transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  backdrop-filter: blur(10px);
 }
 
 .contact-item:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
-  background: rgba(255, 255, 255, 0.15);
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+  background: rgba(255, 255, 255, 0.2);
+  border-left-color: #FFD700;
+}
+
+.contact-item img {
+  height: 100px;
+  width: auto;
+  object-fit: contain;
+  margin-bottom: 15px;
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3)) brightness(1.1) contrast(1.1);
+  animation: imageGlow 3s ease-in-out infinite;
+  transition: all 0.3s ease;
+}
+
+.contact-item:hover img {
+  filter: drop-shadow(0 6px 12px rgba(255, 215, 0, 0.5)) brightness(1.2) contrast(1.2);
+  transform: scale(1.1);
+}
+
+@keyframes imageGlow {
+  0%, 100% { filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3)) brightness(1.1) contrast(1.1); }
+  50% { filter: drop-shadow(0 6px 12px rgba(255, 215, 0, 0.3)) brightness(1.15) contrast(1.15); }
 }
 
 .contact-item h3 {
@@ -365,7 +392,7 @@
 }
 
 .contact-item a:hover {
-  color: #f0f0f0;
+  color: #FFD700;
 }
 
 .contact-link-btn {

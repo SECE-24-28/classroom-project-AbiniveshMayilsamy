@@ -3,16 +3,29 @@
   max-width: 600px;
   margin: auto;
   min-height: 100vh;
-  background: linear-gradient(135deg, #f093fb 0%, #f5576c 25%, #4facfe 50%, #00f2fe 75%, #667eea 100%);
+  background: linear-gradient(
+    135deg,
+    #f093fb 0%,
+    #f5576c 25%,
+    #4facfe 50%,
+    #00f2fe 75%,
+    #667eea 100%
+  );
   background-size: 400% 400%;
   animation: gradientShift 15s ease infinite;
   background-attachment: fixed;
 }
 
 @keyframes gradientShift {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
 
 .quiz-container h2 {
@@ -34,7 +47,7 @@
 .timer-pie {
   width: 120px;
   height: 120px;
-  transform: rotate(-90deg);
+  transform: rotate(360deg);
 }
 
 .timer-pie-bg {

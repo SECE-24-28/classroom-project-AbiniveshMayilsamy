@@ -165,6 +165,12 @@ function QuizCatalog() {
       <div className="contact-section">
         <div className="contact-section-content">
           <div className="contact-item">
+            <img src="/multi quiz portal.png" alt="Quiz Portal Logo" />
+            <h3>Quiz Portal</h3>
+            <p>Your trusted platform for online assessments</p>
+          </div>
+
+          <div className="contact-item">
             <h3>Location</h3>
             <p>Sri Eswar College of Engineering</p>
             <p>Coimbatore</p>
@@ -174,11 +180,6 @@ function QuizCatalog() {
           <div className="contact-item">
             <h3>Follow Us</h3>
             <p>Instagram: <a href="https://instagram.com/srieshwarcbe" target="_blank" rel="noopener noreferrer">@srieshwarcbe</a></p>
-          </div>
-
-          <div className="contact-item">
-            <h3>More Information</h3>
-            <p>Get in touch with us for more details about our quiz platform.</p>
             <a href="/contact" className="contact-link-btn">Contact Us</a>
           </div>
         </div>
